@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Drawing;
+
 
 namespace Lab2PorogFilter
 {
@@ -6,6 +9,7 @@ namespace Lab2PorogFilter
     {
         static void Main(string[] args)
         {
+            
             Console.WriteLine("Hello World!");
         }
     }

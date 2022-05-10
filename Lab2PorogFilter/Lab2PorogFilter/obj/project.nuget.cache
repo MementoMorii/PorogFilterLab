@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GHqARafVOu5fPi9smywww8gVWkfbM06XmOs65FjJR0yUtCHUfDwkTPFr+slw5cmA/r0xQMk+evMk45TL/xh5sw==",
+  "dgSpecHash": "TKCf97rFTd3Ic/gy09j6Ulk0HSVF2pt88e3g4XNGSB9DNi7A0zjpKHSLMhgcG++6dVSiZ+6qZZT5JNY3nqCuWw==",
   "success": true,
-  "projectFilePath": "D:\\My\\Мага\\Семак 2\\Параллельные вычисления\\Лaб2\\Lab2PorogFilter\\Lab2PorogFilter\\Lab2PorogFilter.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\My\\Мага\\Семак 2\\Параллельные вычисления\\Лaб2\\PorogFilterLab\\Lab2PorogFilter\\Lab2PorogFilter\\Lab2PorogFilter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

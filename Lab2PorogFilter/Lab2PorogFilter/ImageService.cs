@@ -5,7 +5,12 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    class ImageService
+    using System.Drawing;
+    public class ImageService
     {
+        public Bitmap getImage()
+        {
+            return(Bitmap)Image.FromFile("path");   
+        }
     }
 }
