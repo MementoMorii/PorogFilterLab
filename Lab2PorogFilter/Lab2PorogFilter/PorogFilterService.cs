@@ -51,12 +51,12 @@
             return max;
         }
 
-        public IList<Bitmap> FilterImageMultitreading(Bitmap baseImage, double max)
+        public IDictionary<int, Bitmap> FilterImageMultitreading(Bitmap baseImage, double max)
         {
             var height = baseImage.Height;
             var width = baseImage.Width;
-            var resultListBitmaps = new List<Bitmap>();
             var countThreads = 4;
+            var dictionaryBitmaps = new Dictionary<int, Bitmap>();
             var countIterationsForThread = (int)width / countThreads;
             var threads = new Thread[countThreads];
             for (int c = 0; c < countThreads; c++)
@@ -79,7 +79,15 @@
                                 resultImage.SetPixel(i, j, pixel);
                         }
                     }
-                    resultListBitmaps.Add(resultImage);
+                    var dictionaryIndex = -1;
+
+                    for (int x = 0; x < countThreads; x++)
+                    {
+                        if (numberEndIterationForThread == countIterationsForThread * (x+1))
+                            dictionaryIndex = x;
+                    }
+
+                    dictionaryBitmaps.Add(dictionaryIndex, resultImage);
                 });
                 threads[c].Start();
             }
@@ -96,15 +104,15 @@
                 }
             }
 
-            return resultListBitmaps;
+            return dictionaryBitmaps;
         }
 
-        public Bitmap ConcatBitmaps(IList<Bitmap> listBitmaps)
+        public Bitmap ConcatBitmaps(IDictionary<int, Bitmap> dictionaryBitmaps)
         {
-            var width = listBitmaps[0].Width;
-            var height = listBitmaps[0].Height;
+            var width = dictionaryBitmaps[0].Width;
+            var height = dictionaryBitmaps[0].Height;
             var resultImage = new Bitmap(width, height);
-            var countThreads = listBitmaps.Count();
+            var countThreads = dictionaryBitmaps.Count();
             var countIterationsForThread = (int)width / countThreads;
 
             for (int c = 0; c < countThreads; c++)
@@ -115,7 +123,7 @@
                 {
                     for (int j = 0; j < height; j++)
                     {
-                        resultImage.SetPixel(i, j, listBitmaps[c].GetPixel(i, j));
+                        resultImage.SetPixel(i, j, dictionaryBitmaps[c].GetPixel(i, j));
                     }
                 }
             }

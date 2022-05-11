@@ -15,7 +15,7 @@
         //    var resultImage = _porogFilterService.FilterImage(image, max);
         //    stopWath.Stop();
         //    var timeSpan = stopWath.Elapsed;
-        //    Console.WriteLine($"Время выполнения фильтрации картинки 2048*1536 В синхронном режиме: {timeSpan.Minutes}:{timeSpan.Seconds}.{timeSpan.Milliseconds / 10} MM:SS.Milliseconds / 10");
+        //    Console.WriteLine($"Время выполнения фильтрации картинки 1024*768 В синхронном режиме: {timeSpan.Minutes}:{timeSpan.Seconds}.{timeSpan.Milliseconds / 10} MM:SS.Milliseconds / 10");
         //    _imageService.SaveImage(resultImage);
         //}
 
@@ -28,7 +28,7 @@
             var resultListImage = _porogFilterService.FilterImageMultitreading(image, max);
             stopWath.Stop();
             var timeSpan = stopWath.Elapsed;
-            Console.WriteLine($"Время выполнения фильтрации картинки 1048*768 В Многопоточном режиме: {timeSpan.Minutes}:{timeSpan.Seconds}.{timeSpan.Milliseconds / 10} MM:SS.Milliseconds / 10");
+            Console.WriteLine($"Время выполнения фильтрации картинки 1024*768 В Многопоточном режиме: {timeSpan.Minutes}:{timeSpan.Seconds}.{timeSpan.Milliseconds / 10} MM:SS.Milliseconds / 10");
             var resultImage = _porogFilterService.ConcatBitmaps(resultListImage);
             _imageService.SaveImage(resultImage);
         }
